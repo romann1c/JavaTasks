@@ -20,8 +20,8 @@ public class Subsequence {
      */
     @SuppressWarnings("rawtypes")
         public boolean find(List<Object> a, List<Object> b) throws IllegalArgumentException {
-        // here I wanted to check that neither of lists is empty,
-        // not a must, however that makes no sense if we execute the following code over an empty list,
+        // here I wanted to check that neither of lists is empty, using list.isEmpty(),
+        // not a must, but imho that makes no sense if we execute the following code over empty lists,
         // but the tests want me to make it so.
         if (a == null || b == null )
             throw new IllegalArgumentException();
