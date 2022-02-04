@@ -37,9 +37,13 @@ public class PyramidBuilder {
             throw new CannotBuildPyramidException();
         }
 
-        
+        try{
         Collections.sort(inputNumbers);               //using collections to sort
-
+        } catch (OutOfMemoryError error) {
+            throw new CannotBuildPyramidException();  //catch OutOfMemoryError and substitute it with CannotBuildPyramidException
+            }
+            
+            
         pyramid = new int[rows][columns];
         for (int[] row : pyramid) {                   //fill the "template" up with zeros
             Arrays.fill(row, 0);
