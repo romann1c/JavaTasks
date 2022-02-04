@@ -89,7 +89,7 @@ public class Calculator {
                     if (rpn.charAt(i) == '/') {
                         if (a == 0) {
                             System.out.println("Division by zero");
-                            stack.push(b / a);
+                            return null;
                         } else stack.push(b / a);
                     }
                     if (rpn.charAt(i) == '+') stack.push(b + a);
