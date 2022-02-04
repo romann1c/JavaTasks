@@ -22,7 +22,7 @@ public class Calculator {
         String preparedForRPNline = reshapeZerosAndBrackets(input);
 
         Double value = rpnToAnswer(calculate(preparedForRPNline));
-
+        if(value == null) return null;
         String result = String.format("%.4f", value);
         
         if(result == "Infinity") return null;
