@@ -24,7 +24,7 @@ public class Subsequence {
         // isn't a must, however that'd make no sense if we execute the following code over an empty list,
         // here also could have been a NullPointerException thrown;
         if (a == null || b == null || a.isEmpty() || b.isEmpty())
-            throw new IllegalArgumentException("Lists must not be empty");
+            throw new IllegalArgumentException();
         int counter = 0; // counts the number of values in the second list meeting requirements
         int subIndex = 0;
         for (Object fromFirstList : a) {                            //here we go through the first list;
