@@ -13,7 +13,7 @@ public class Calculator {
      * @return string value containing result of evaluation or null if statement is invalid
      */
     //The following part is a wrapping part where I use public methods, check the input, and shape the output
-    public String calculate(String input) {
+    public String evaluate (String input) {
         if (input == null || input.isEmpty()) return null;            // it's obvious;
         if (!input.matches("[0-9(.)/*+-]+")) return null;       // quite obvious;
         if (doubleTypedSymbols(input)) return null;                   // the method checks if there's anything as ".."
@@ -21,7 +21,7 @@ public class Calculator {
 
         String preparedForRPNline = reshapeZerosAndBrackets(input);
 
-        Double value = rpnToAnswer(evaluate(preparedForRPNline));
+        Double value = rpnToAnswer(calculate(preparedForRPNline));
 
         String result = String.format("%.4f", value);
 
@@ -31,7 +31,7 @@ public class Calculator {
 
 //Here's the private part where all the operations are being made. The main piece of the solution.
 
-    public String evaluate (String input) {          // Reverse Polish Notation is used here.
+    public String calculate (String input) {          // Reverse Polish Notation is used here.
         String current = "";
         Stack<Character> stack = new Stack<Character>();
 
