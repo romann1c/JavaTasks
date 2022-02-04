@@ -23,10 +23,15 @@ public class Calculator {
 
         Double value = rpnToAnswer(calculate(preparedForRPNline));
         if(value == null) return null;
-        String result = String.format("%.4f", value);
-        
-        if(result == "Infinity") return null;
-        else return result;
+        while(result.endsWith("0") || result.endsWith(".")){
+            if(result.endsWith(".")){
+                result = result.substring(0, result.length()-1);
+                break;
+            }
+            if(result.substring(0, result.length()-1).matches("[.]")) break;
+            result = result.substring(0, result.length()-1);
+        }
+        return result;
     }
 
 
