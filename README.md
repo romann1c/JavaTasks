@@ -12,4 +12,4 @@ The exam includes 3 tasks to be done: [Calculator](/tasks/Calculator.md), [Pyram
 ### Result ###
 
 * Author name : Roman Glazyrin
-* CircleCI : image:https://circleci.com/gh/romann1c/JavaTasks.svg?style=shield["romann1c", link="https://app.circleci.com/pipelines/github/romann1c/JavaTasks"]
+* CircleCI : 
