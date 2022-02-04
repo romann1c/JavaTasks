@@ -24,6 +24,8 @@ public class Calculator {
         Double value = rpnToAnswer(calculate(preparedForRPNline));
 
         String result = String.format("%.4f", value);
+        
+        if(result == "Infinity") result = null;
 
         return result;
     }
