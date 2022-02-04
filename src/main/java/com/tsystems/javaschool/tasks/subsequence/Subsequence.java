@@ -19,39 +19,25 @@ public class Subsequence {
      * @return <code>true</code> if possible, otherwise <code>false</code>
      */
     @SuppressWarnings("rawtypes")
-    public boolean find(List x, List y) {
-
-        if (x == null || y == null) {
-            throw new IllegalArgumentException();
-        }
-
-        boolean isPossible = false;
-
-        List z = new ArrayList();
-        int index = 0;
-
-        for (Object o : x) {
-            boolean shouldNotStop = false;
-
-            for (int i = 0; i < y.size(); i++) {
-                if (y.get(i).equals(o) && i >= index) {
-                    z.add(y.get(i));
-                    shouldNotStop = true;
-                    index = i;
-                }
-            }
-
-            if (!shouldNotStop) {
-                return false;
+        public boolean find(List<Object> a, List<Object> b) throws IllegalArgumentException {
+        // checking that neither of lists is empty,
+        // isn't a must, however that'd make no sense if we execute the following code over an empty list,
+        // here also could have been a NullPointerException thrown;
+        if (a == null || b == null || a.isEmpty() || b.isEmpty())
+            throw new IllegalArgumentException("Lists must not be empty");
+        int counter = 0; // counts the number of values in the second list meeting requirements
+        int subIndex = 0;
+        for (Object fromFirstList : a) {                            //here we go through the first list;
+            for (int index = subIndex; index < b.size(); index++) { //here we compare every value from the second list
+                if (fromFirstList.equals(b.get(index))) {           //with a value from the first list;
+                    counter++;                                      //if there's a match, counter increases by 1;
+                    subIndex = index + 1;                           //to keep the correct order, if we did it otherwise
+                    break;                                          //each time the program would go from the beginning
+                }                                                   //of the second list;
             }
         }
 
-        z.removeAll(x);
-
-        if (z.size() == 0) {
-            isPossible = true;
-        }
-
-        return isPossible;
-    }
+        if (counter == a.size()) return true;  //if quantity of numbers meeting the requirements
+        return false;                          //is equal to the first list's size then the whole second list
+    }                                          // may become so by cutting a number of values out
 }
