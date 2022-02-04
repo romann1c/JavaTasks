@@ -20,10 +20,10 @@ public class Subsequence {
      */
     @SuppressWarnings("rawtypes")
         public boolean find(List<Object> a, List<Object> b) throws IllegalArgumentException {
-        // checking that neither of lists is empty,
-        // isn't a must, however that'd make no sense if we execute the following code over an empty list,
-        // here also could have been a NullPointerException thrown;
-        if (a == null || b == null || a.isEmpty() || b.isEmpty())
+        // here I wanted to check that neither of lists is empty,
+        // not a must, however that makes no sense if we execute the following code over an empty list,
+        // but the tests want me to make it so.
+        if (a == null || b == null )
             throw new IllegalArgumentException();
         int counter = 0; // counts the number of values in the second list meeting requirements
         int subIndex = 0;
