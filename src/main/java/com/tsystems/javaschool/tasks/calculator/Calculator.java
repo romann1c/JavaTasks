@@ -25,9 +25,8 @@ public class Calculator {
 
         String result = String.format("%.4f", value);
         
-        if(result == "Infinity") result = null;
-
-        return result;
+        if(result == "Infinity") return null;
+        else return result;
     }
 
 
