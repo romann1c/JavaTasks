@@ -23,6 +23,7 @@ public class Calculator {
 
         Double value = rpnToAnswer(calculate(preparedForRPNline));
         if(value == null) return null;
+        String result = String.format("%.4f", value);
         while(result.endsWith("0") || result.endsWith(".")){
             if(result.endsWith(".")){
                 result = result.substring(0, result.length()-1);
@@ -33,7 +34,6 @@ public class Calculator {
         }
         return result;
     }
-
 
 //Here's the private part where all the operations are being made. The main piece of the solution.
 
